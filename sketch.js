@@ -34,13 +34,23 @@ function draw() {
 
   if(keyDown(DOWN_ARROW)){
     balloon.addAnimation("hotAirBalloon",balloonImage2);
-    //write code to move air balloon in left direction
+    //write code to move air balloon is down direction
+    updateHeight(0,5)
+    balloon.scale=balloon.scale+0.01
   }
   else if(keyDown(UP_ARROW)){
-    updateHeight(0,-10)
+    updateHeight(0,-5)
     balloon.addAnimation("hotAirBalloon",balloonImage2);
     //write code to move air balloon in up direction
     balloon.scale=balloon.scale-0.01
+  }
+  else if(keyDown(RIGHT_ARROW)){
+    balloon.addAnimation("hotAirBalloon", balloonImage2);
+    updateHeight(5,0)
+  }
+  else if(keyDown(LEFT_ARROW)){
+    balloon.addAnimation("hotAirBalloon", balloonImage2);
+    updateHeight(-5,0)
   }
 
   drawSprites();
@@ -66,3 +76,4 @@ function readHeight(data){
 function showError(){
   console.log("error is writing to the database")
 }
+
